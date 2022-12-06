@@ -6,6 +6,10 @@ on:
         type: string
         required: true
         description: "Short name of the game."
+      description:
+        type: string
+        required: true
+        description: "Description of the container purpose."
 
 jobs:
   build:
