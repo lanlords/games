@@ -31,8 +31,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Update Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
-        working-directory: containers/${{ inputs.name }}
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: lanlords/${{ inputs.name }}
+          readme-filepath: ./containers/${{ inputs.name }}/README.md
