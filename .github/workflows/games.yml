@@ -34,18 +34,16 @@ jobs:
   build-cod2:
     name: Call of Duty 2
     needs: check-requirements
-    #uses: ./.github/workflows/_build-linux.yml
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule'
-    uses: ./.github/workflows/_test.yml
+    uses: ./.github/workflows/_build-linux.yml
     secrets: inherit
     with:
       name: cod2
   build-cod4:
     name: Call of Duty 4
     needs: check-requirements
-    #uses: ./.github/workflows/_build-linux.yml
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
-    uses: ./.github/workflows/_test.yml
+    uses: ./.github/workflows/_build-linux.yml
     secrets: inherit
     with:
       name: cod4

@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build image
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -21,3 +22,17 @@ jobs:
       # master
       - name: Push Image
         run: docker push lanlords/${{ inputs.name }}
+
+  readme:
+    name: Update readme
+    runs-on: ubuntu-18.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        working-directory: containers/${{ inputs.name }}
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: lanlords/${{ inputs.name }}
