@@ -32,25 +32,72 @@ jobs:
           echo "${{ steps.check-changed-files.outputs.changed-files-list }}"
 
   # games
-  cod2:
-    name: Call of Duty 2
-    uses: ./.github/workflows/_linux.yml
-    env:
-      GAME_NAME: "cod2"
+  build-bf1942:
+    name: Battlefield 1942
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf1942') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
-      name: ${{ env.GAME_NAME }}
+      name: bf1942
+      description: "Battlefield 2 game server. Updated automatically."
+
+  build-bf2:
+    name: Battlefield 2
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf2') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: bf2
+      description: "Battlefield 2 game server. Updated automatically."
+
+  build-cod2:
+    name: Call of Duty 2
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: cod2
       description: "Call of Duty 2 game server. Updated automatically."
+
   build-cod4:
     name: Call of Duty 4
-    uses: ./.github/workflows/_linux.yml
-    env:
-      GAME_NAME: "cod4"
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
-      name: ${{ env.GAME_NAME }}
+      name: cod4
       description: "Call of Duty 4 game server. Updated automatically."
+
+  build-cod5:
+    name: Call of Duty 5
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod5') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: cod5
+      description: "Call of Duty 5 game server. Updated automatically."
+
+  build-csgo:
+    name: Counter-Strike: Global Offensive
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: csgo
+      description: "Counter-Strike: Global Offensive game server. Updated automatically."
+
+  build-tf2:
+    name: Team Fortress 2
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'tf2') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: tf2
+      description: "Team Fortress 2 game server. Updated automatically."

@@ -6,7 +6,7 @@ FROM ubuntu:20.04 as builder
 # Set environment variables
 ENV USER root
 ENV HOME /data
-ENV FILE https://download.fieldfuckers.nl/servers/cod2.zip
+ENV FILE https://download.fieldfuckers.nl/servers/cod4.zip
 
 # Set working directory
 WORKDIR $HOME
@@ -29,7 +29,7 @@ FROM ubuntu:20.04
 LABEL maintainer="Lanlords"
 
 # Set environment variables
-ENV USER cod2
+ENV USER cod4
 ENV HOME /data
 
 # Install prerequisites
@@ -43,7 +43,7 @@ RUN dpkg --add-architecture i386 \
 RUN useradd -m -d $HOME $USER
 
 # Copy game files from builder
-COPY --from=builder --chown=cod2:cod2 /data $HOME
+COPY --from=builder --chown=cod4:cod4 /data $HOME
 
 # switch to user
 USER $USER
@@ -55,5 +55,5 @@ EXPOSE 28960/udp 20510/udp
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/cod2_lnxded
-CMD ["+set dedicated 1", "+set g_gametype ctf", "+map_rotate", "+set sv_punkbuster 0", "+exec server.cfg"]
+ENTRYPOINT $HOME/cod4_lnxded
+CMD ["+set dedicated 1", "+set g_gametype sd", "+map_rotate", "+set sv_punkbuster 0", "+exec server.cfg"]

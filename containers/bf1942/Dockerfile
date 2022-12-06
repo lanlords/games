@@ -6,7 +6,7 @@ FROM ubuntu:20.04 as builder
 # Set environment variables
 ENV USER root
 ENV HOME /data
-ENV FILE https://download.fieldfuckers.nl/servers/cod2.zip
+ENV FILE https://download.fieldfuckers.nl/servers/bf1942.zip
 
 # Set working directory
 WORKDIR $HOME
@@ -29,31 +29,34 @@ FROM ubuntu:20.04
 LABEL maintainer="Lanlords"
 
 # Set environment variables
-ENV USER cod2
+ENV USER bf1942
 ENV HOME /data
 
 # Install prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 \
  && apt-get update -y \
- && apt-get install -y --no-install-recommends libstdc++5:i386 \
+ && apt-get install -y --no-install-recommends libncurses5 libc6-i386 libc6-dev-i386 \
  && rm -rf /var/lib/apt/lists/*
 
 # Create the application user
 RUN useradd -m -d $HOME $USER
 
 # Copy game files from builder
-COPY --from=builder --chown=cod2:cod2 /data $HOME
+COPY --from=builder --chown=bf1942:bf1942 /data $HOME
+
+# Copy configuration and scripts
+COPY --chown=bf1942:bf1942 scripts/bf1942_wrapper $HOME/bf1942_wrapper
 
 # switch to user
 USER $USER
 
 # Expose required ports
-EXPOSE 28960/udp 20510/udp
+EXPOSE 14567/udp 22000/udp
 
 # Set working directory
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/cod2_lnxded
-CMD ["+set dedicated 1", "+set g_gametype ctf", "+map_rotate", "+set sv_punkbuster 0", "+exec server.cfg"]
+ENTRYPOINT $HOME/start.sh
+CMD ["+dedicated"]

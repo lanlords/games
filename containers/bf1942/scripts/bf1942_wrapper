@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# script variables
+GAME_DIR="$(pwd)"
+GAME_CMD="$@"
+GAME_BIN="$GAME_DIR/bf1942_lnxded"
+GAME_CFG="$GAME_DIR/mods/bf1942/settings/serversettings.con"
+
+# config variables
+CONFIG_SETTING="game.serverName"
+
+# check if server name is set
+if [ ! -z "$CONFIG_SERVERNAME" ]
+then
+  # replace set server name in config
+  sed -i "s/^$CONFIG_SETTING .*/$CONFIG_SETTING \"$CONFIG_SERVERNAME\"/g" $GAME_CFG
+fi
+
+# execute game executable
+$GAME_BIN $GAME_CMD

@@ -1,3 +1,3 @@
 # Call of Duty 2
 
-Docker file
+Call of Duty 2 game server. Updated automatically.
