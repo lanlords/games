@@ -14,5 +14,7 @@ jobs:
     if: ${{ contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule' }}
     steps:
       - uses: actions/checkout@v3
-      - name: Test Job
+      - name: Name of Game
+        run: echo "${{ inputs.name }}"
+      - name: List of Changed files
         run: echo "${{ needs.check-requirements.outputs.changed-files-list }}"

@@ -33,13 +33,15 @@ jobs:
   # games
   build-cod2:
     name: Call of Duty 2
-    uses: ./.github/workflows/_build-linux.yml
+    #uses: ./.github/workflows/_build-linux.yml
+    uses: ./.github/workflows/_test.yml
     secrets: inherit
     with:
       name: cod2
   build-cod4:
     name: Call of Duty 4
-    uses: ./.github/workflows/_build-linux.yml
+    #uses: ./.github/workflows/_build-linux.yml
+    uses: ./.github/workflows/_test.yml
     secrets: inherit
     with:
       name: cod4
