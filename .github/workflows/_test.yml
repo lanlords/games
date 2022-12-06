@@ -10,8 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    needs: check-requirements
-    if: ${{ contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule' }}
     steps:
       - uses: actions/checkout@v3
       - name: Name of Game
