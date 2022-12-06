@@ -1,2 +1,3 @@
-# games
-Docker containers of game servers
+# Games
+
+Docker containers of game servers.

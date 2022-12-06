@@ -1,0 +1,45 @@
+name: Build Images
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
+
+jobs:
+  # prerequisites
+  check-requirements:
+    name: Check requirements
+    runs-on: ubuntu-20.04
+    outputs:
+      changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Store changed files list
+        id: check-changed-files
+        run: |
+          echo 'changed-files-list<<EOF' >> $GITHUB_OUTPUT
+          git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+      - name: Output changed files list
+        run: >
+          echo "${{ steps.check-changed-files.outputs.changed-files-list }}"
+
+  # games
+  build-cod2:
+    name: Call of Duty 2
+    uses: ./.github/workflows/_build-linux.yml
+    secrets: inherit
+    with:
+      name: cod2
+  build-cod4:
+    name: Call of Duty 4
+    uses: ./.github/workflows/_build-linux.yml
+    secrets: inherit
+    with:
+      name: cod4
