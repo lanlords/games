@@ -32,21 +32,25 @@ jobs:
           echo "${{ steps.check-changed-files.outputs.changed-files-list }}"
 
   # games
-  build-cod2:
+  cod2:
     name: Call of Duty 2
+    env:
+      GAME_NAME: "cod2"
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
-      name: cod2
+      name: ${{ env.GAME_NAME }}
       description: "Call of Duty 2 game server. Updated automatically."
   build-cod4:
     name: Call of Duty 4
+    env:
+      GAME_NAME: "cod4"
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
-      name: cod4
+      name: ${{ env.GAME_NAME }}
       description: "Call of Duty 4 game server. Updated automatically."
