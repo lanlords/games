@@ -34,22 +34,22 @@ jobs:
   # games
   cod2:
     name: Call of Duty 2
+    uses: ./.github/workflows/_linux.yml
     env:
       GAME_NAME: "cod2"
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
-    uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
       name: ${{ env.GAME_NAME }}
       description: "Call of Duty 2 game server. Updated automatically."
   build-cod4:
     name: Call of Duty 4
+    uses: ./.github/workflows/_linux.yml
     env:
       GAME_NAME: "cod4"
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, env.GAME_NAME) || github.event_name == 'schedule'
-    uses: ./.github/workflows/_linux.yml
     secrets: inherit
     with:
       name: ${{ env.GAME_NAME }}
