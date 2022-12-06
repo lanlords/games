@@ -83,7 +83,7 @@ jobs:
       description: "Call of Duty 5 game server. Updated automatically."
 
   build-csgo:
-    name: Counter-Strike: Global Offensive
+    name: Counter-Strike Global Offensive
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
