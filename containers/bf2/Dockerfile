@@ -55,5 +55,5 @@ EXPOSE 4711/tcp 16567/udp 29900/udp
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/start.sh
+ENTRYPOINT ["/data/start.sh"]
 CMD ["+dedicated"]
