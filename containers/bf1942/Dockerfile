@@ -36,7 +36,7 @@ ENV HOME /data
 ARG DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 \
  && apt-get update -y \
- && apt-get install -y --no-install-recommends libncurses5 libc6-i386 libc6-dev-i386 \
+ && apt-get install -y --no-install-recommends libncurses5:i386 libc6-i386 libc6-dev-i386 \
  && rm -rf /var/lib/apt/lists/*
 
 # Create the application user
@@ -58,5 +58,5 @@ EXPOSE 14567/udp 22000/udp
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/start.sh
-CMD ["+dedicated"]
+ENTRYPOINT ["/data/bf1942_wrapper"]
+CMD ["+dedicated", "+statusMonitor", "1"]
