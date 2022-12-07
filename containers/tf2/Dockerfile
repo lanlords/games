@@ -15,7 +15,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 \
  && apt-get update -y \
  && apt-get install -y --no-install-recommends ca-certificates libcurl3-gnutls:i386 \
-                    libstdc++6:i386 lib32gcc1 lib32ncurses5 \
+                    libstdc++6:i386 lib32gcc1 libncurses5:i386 \
  && rm -rf /var/lib/apt/lists/*
 
 # Create the application user
