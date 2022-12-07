@@ -36,7 +36,7 @@ ENV HOME /data
 ARG DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 \
  && apt-get update -y \
- && apt-get install -y --no-install-recommends libstdc++5:i386 \
+ && apt-get install -y --no-install-recommends libstdc++6:i386 \
  && rm -rf /var/lib/apt/lists/*
 
 # Create the application user
@@ -55,5 +55,5 @@ EXPOSE 28960/udp 20510/udp
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/codwaw_lnxded
+ENTRYPOINT ["/data/codwaw_lnxded"]
 CMD ["+set dedicated 1", "+set g_gametype sab", "+map_rotate", "+set sv_punkbuster 0", "+exec server.cfg"]
