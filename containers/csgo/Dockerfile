@@ -34,5 +34,5 @@ EXPOSE 27015/udp 27015/tcp
 WORKDIR $HOME
 
 # Set default command
-ENTRYPOINT $HOME/srcds_run
+ENTRYPOINT ["/data/srcds_run"]
 CMD ["-console", "-game csgo", "-usercon", "-nobots", "-maxplayers_override 30", "+mp_autoteambalance 0", "-tickrate 128", "+game_type 0", "+game_mode 1", "+mapgroup mg_bomb", "+ip 0.0.0.0", "+exec csgoserver.cfg"]
