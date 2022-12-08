@@ -81,6 +81,7 @@ jobs:
     with:
       name: cod5
       description: "Call of Duty 5 game server. Updated automatically."
+      maximize_space: true
 
   build-csgo:
     name: Counter-Strike Global Offensive
