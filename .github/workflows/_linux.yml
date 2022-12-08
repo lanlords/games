@@ -22,9 +22,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        #if: ${{ inputs.maximize_space == true }}
         if: ${{ inputs.maximize_space }}
+        uses: easimon/maximize-build-space@master
+        with:
+          remove-dotnet: 'true'
       - uses: actions/checkout@v3
       - name: Docker Login
         run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
