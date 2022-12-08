@@ -14,6 +14,7 @@ on:
         type: boolean
         required: false
         default: false
+        description: "Maximize github action build space."
 
 jobs:
   build:
@@ -22,6 +23,7 @@ jobs:
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
+        #if: ${{ inputs.maximize_space == true }}
         if: ${{ inputs.maximize_space }}
       - uses: actions/checkout@v3
       - name: Docker Login
