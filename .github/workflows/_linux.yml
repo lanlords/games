@@ -25,7 +25,9 @@ jobs:
         if: ${{ inputs.maximize_space }}
         uses: easimon/maximize-build-space@master
         with:
-          remove-dotnet: 'true'
+          remove-dotnet:  'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
       - uses: actions/checkout@v3
       - name: Docker Login
         run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
