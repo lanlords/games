@@ -10,12 +10,19 @@ on:
         type: string
         required: true
         description: "Description of the container purpose."
+      maximize_space:
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   build:
     name: Build image
     runs-on: ubuntu-20.04
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        if: ${{ inputs.maximize_space }}
       - uses: actions/checkout@v3
       - name: Docker Login
         run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
