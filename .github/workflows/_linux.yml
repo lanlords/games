@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Maximize build space
         if: ${{ inputs.maximize_space }}
-      - run: |
+        run: |
           sudo rm -rf /opt/az/                 # 1.3G
           sudo rm -rf /opt/hostedtoolcache/    # 7.1G
           sudo rm -rf /usr/share/dotnet/       # 3.3G
