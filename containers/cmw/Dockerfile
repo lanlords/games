@@ -20,7 +20,7 @@ RUN dpkg --add-architecture i386 \
 # Create the application user
 RUN useradd -m -d $HOME $USER
 
-# Download game files from steam
+# Download game files from steam (retry to avoid bug)
 RUN steamcmd +login anonymous +force_install_dir $HOME \
     +app_update 220070 validate +quit \
  || steamcmd +login anonymous +force_install_dir $HOME \
