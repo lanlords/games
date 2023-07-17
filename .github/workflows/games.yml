@@ -52,6 +52,16 @@ jobs:
       name: bf2
       description: "Battlefield 2 game server. Updated automatically."
 
+  build-cmw:
+    name: Chivalry Medieval Warfare
+    needs: check-requirements
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cmw') || github.event_name == 'schedule'
+    uses: ./.github/workflows/_linux.yml
+    secrets: inherit
+    with:
+      name: cmw
+      description: "Chivalry Medieval Warfare game server. Updated automatically."
+
   build-cod2:
     name: Call of Duty 2
     needs: check-requirements

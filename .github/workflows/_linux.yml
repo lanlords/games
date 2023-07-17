@@ -23,11 +23,12 @@ jobs:
     steps:
       - name: Maximize build space
         if: ${{ inputs.maximize_space }}
-        uses: easimon/maximize-build-space@master
-        with:
-          remove-dotnet:  'true'
-          remove-android: 'true'
-          remove-haskell: 'true'
+      - run: |
+          sudo rm -rf /opt/az/                 # 1.3G
+          sudo rm -rf /opt/hostedtoolcache/    # 7.1G
+          sudo rm -rf /usr/share/dotnet/       # 3.3G
+          sudo rm -rf /usr/share/swift/        # 1.6G
+          sudo rm -rf /usr/local/lib/android/  # 12G
       - uses: actions/checkout@v3
       - name: Docker Login
         run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
