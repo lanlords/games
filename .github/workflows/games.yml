@@ -37,7 +37,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'bf1942') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: bf1942
       description: "Battlefield 2 game server. Updated automatically."
@@ -49,7 +48,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'bf2') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: bf2
       description: "Battlefield 2 game server. Updated automatically."
@@ -61,7 +59,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cmw') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: cmw
       description: "Chivalry Medieval Warfare game server. Updated automatically."
@@ -73,7 +70,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: cod2
       description: "Call of Duty 2 game server. Updated automatically."
@@ -85,7 +81,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets : inherit
     with:
       name: cod4
       description: "Call of Duty 4 game server. Updated automatically."
@@ -97,7 +92,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod5') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: cod5
       description: "Call of Duty 5 game server. Updated automatically."
@@ -109,7 +103,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: csgo
       description: "Counter-Strike: Global Offensive game server. Updated automatically."
@@ -121,7 +114,6 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'tf2') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
     with:
       name: tf2
       description: "Team Fortress 2 game server. Updated automatically."
