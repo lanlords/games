@@ -12,15 +12,12 @@ on:
         description: "Description of the container purpose."
     secrets:
       build_api:
-        type: string
         required: true
         description: "URL to trigger Automated build in Docker Hub"
       docker_username:
-        type: string
         required: true
         description: "Docker Hub username"
       docker_password:
-        type: string
         required: true
         description: "Docker Hub password"
 
