@@ -39,7 +39,7 @@ jobs:
     uses: ./.github/workflows/_linux.yml
     with:
       name: bf1942
-      description: "Battlefield 2 game server. Updated automatically."
+      description: "Battlefield 1942 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_BF1942 }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
