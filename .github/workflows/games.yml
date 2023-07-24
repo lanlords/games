@@ -42,6 +42,8 @@ jobs:
       description: "Battlefield 2 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_BF1942 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-bf2:
     name: Battlefield 2
@@ -53,6 +55,8 @@ jobs:
       description: "Battlefield 2 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_BF2 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-cmw:
     name: Chivalry Medieval Warfare
@@ -64,6 +68,8 @@ jobs:
       description: "Chivalry Medieval Warfare game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_CMW }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-cod2:
     name: Call of Duty 2
@@ -75,6 +81,8 @@ jobs:
       description: "Call of Duty 2 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_COD2 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-cod4:
     name: Call of Duty 4
@@ -86,6 +94,8 @@ jobs:
       description: "Call of Duty 4 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_COD4 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-cod5:
     name: Call of Duty 5
@@ -97,6 +107,8 @@ jobs:
       description: "Call of Duty 5 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_COD5 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-csgo:
     name: Counter-Strike Global Offensive
@@ -108,6 +120,8 @@ jobs:
       description: "Counter-Strike: Global Offensive game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_CSGO }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
   build-tf2:
     name: Team Fortress 2
@@ -119,3 +133,5 @@ jobs:
       description: "Team Fortress 2 game server. Updated automatically."
     secrets:
       build_api: ${{ secrets.BUILD_API_TF2 }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
