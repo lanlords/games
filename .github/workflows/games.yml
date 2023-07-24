@@ -41,7 +41,7 @@ jobs:
     with:
       name: bf1942
       description: "Battlefield 2 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_BF1942 }}
+      build_api: "${{ secrets.BUILD_API_BF1942 }}"
 
   build-bf2:
     name: Battlefield 2
@@ -52,7 +52,7 @@ jobs:
     with:
       name: bf2
       description: "Battlefield 2 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_BF2 }}
+      build_api: "${{ secrets.BUILD_API_BF2 }}"
 
   build-cmw:
     name: Chivalry Medieval Warfare
@@ -63,7 +63,7 @@ jobs:
     with:
       name: cmw
       description: "Chivalry Medieval Warfare game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_CMW }}
+      build_api: "${{ secrets.BUILD_API_CMW }}"
 
   build-cod2:
     name: Call of Duty 2
@@ -74,7 +74,7 @@ jobs:
     with:
       name: cod2
       description: "Call of Duty 2 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_COD2 }}
+      build_api: "${{ secrets.BUILD_API_COD2 }}"
 
   build-cod4:
     name: Call of Duty 4
@@ -85,7 +85,7 @@ jobs:
     with:
       name: cod4
       description: "Call of Duty 4 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_COD4 }}
+      build_api: "${{ secrets.BUILD_API_COD4 }}"
 
   build-cod5:
     name: Call of Duty 5
@@ -96,7 +96,7 @@ jobs:
     with:
       name: cod5
       description: "Call of Duty 5 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_COD5 }}
+      build_api: "${{ secrets.BUILD_API_COD5 }}"
 
   build-csgo:
     name: Counter-Strike Global Offensive
@@ -107,7 +107,7 @@ jobs:
     with:
       name: csgo
       description: "Counter-Strike: Global Offensive game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_CSGO }}
+      build_api: "${{ secrets.BUILD_API_CSGO }}"
 
   build-tf2:
     name: Team Fortress 2
@@ -118,4 +118,4 @@ jobs:
     with:
       name: tf2
       description: "Team Fortress 2 game server. Updated automatically."
-      build_api: ${{ secrets.BUILD_API_TF2 }}
+      build_api: "${{ secrets.BUILD_API_TF2 }}"
