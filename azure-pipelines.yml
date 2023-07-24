@@ -24,6 +24,6 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/containers/csgo/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/containers/bf1942/Dockerfile'
         tags: |
           $(tag)
