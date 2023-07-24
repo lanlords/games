@@ -21,24 +21,9 @@ jobs:
     name: Build image
     runs-on: ubuntu-20.04
     steps:
-      - name: Maximize build space
-        if: ${{ inputs.maximize_space }}
-        run: |
-          sudo rm -rf /opt/az/                 # 1.3G
-          sudo rm -rf /opt/hostedtoolcache/    # 7.1G
-          sudo rm -rf /usr/share/dotnet/       # 3.3G
-          sudo rm -rf /usr/share/swift/        # 1.6G
-          sudo rm -rf /usr/local/lib/android/  # 12G
       - uses: actions/checkout@v3
-      - name: Docker Login
-        run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - name: Build Image
-        run: docker build -t lanlords/${{ inputs.name }} .
-        working-directory: containers/${{ inputs.name }}
-
-      # master
-      - name: Push Image
-        run: docker push lanlords/${{ inputs.name }}
+      - name: Trigger Docker Automated Build
+        run: curl -s -X POST "${{ inputs.build_api }}"
 
   readme:
     name: Update readme

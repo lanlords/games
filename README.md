@@ -7,13 +7,13 @@ Docker containers of game servers.
 
 ## Containers
 
-| Name             | Docker Hub  |              
-|------------------|-------------|
-| Battlefield 1942 | [![Size](https://img.shields.io/docker/image-size/lanlords/bf1942?label=)](https://hub.docker.com/r/lanlords/bf1942) |
-| Battlefield 2    | [![Size](https://img.shields.io/docker/image-size/lanlords/bf2?label=)](https://hub.docker.com/r/lanlords/bf2)       |
-| Call of Duty 2   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod2?label=)](https://hub.docker.com/r/lanlords/cod2)     |
-| Call of Duty 4   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod4?label=)](https://hub.docker.com/r/lanlords/cod4)     |
-| Call of Duty 5   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod5?label=)](https://hub.docker.com/r/lanlords/cod5)     |
-| Chivalry: Medieval Warfare | [![Size](https://img.shields.io/docker/image-size/lanlords/cmw?label=)](https://hub.docker.com/r/lanlords/cmw) |
-| Counter-Strike: Global Offensive | [![Size](https://img.shields.io/docker/image-size/lanlords/csgo?label=)](https://hub.docker.com/r/lanlords/csgo) |
-| Team Fortress 2  | [![Size](https://img.shields.io/docker/image-size/lanlords/tf2?label=)](https://hub.docker.com/r/lanlords/tf2)       |
+| Name             | Image Size  | Docker Build |
+|------------------|-------------|--------------|
+| Battlefield 1942 | [![Size](https://img.shields.io/docker/image-size/lanlords/bf1942?label=)](https://hub.docker.com/r/lanlords/bf1942) | ![Status](https://img.shields.io/docker/cloud/build/lanlords/bf1942) |
+| Battlefield 2    | [![Size](https://img.shields.io/docker/image-size/lanlords/bf2?label=)](https://hub.docker.com/r/lanlords/bf2)       | ![Status](https://img.shields.io/docker/cloud/build/lanlords/bf2) |
+| Call of Duty 2   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod2?label=)](https://hub.docker.com/r/lanlords/cod2)     | ![Status](https://img.shields.io/docker/cloud/build/lanlords/cod2) |
+| Call of Duty 4   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod4?label=)](https://hub.docker.com/r/lanlords/cod4)     | ![Status](https://img.shields.io/docker/cloud/build/lanlords/cod4) |
+| Call of Duty 5   | [![Size](https://img.shields.io/docker/image-size/lanlords/cod5?label=)](https://hub.docker.com/r/lanlords/cod5)     | ![Status](https://img.shields.io/docker/cloud/build/lanlords/cod5) |
+| Chivalry: Medieval Warfare | [![Size](https://img.shields.io/docker/image-size/lanlords/cmw?label=)](https://hub.docker.com/r/lanlords/cmw) | ![Status](https://img.shields.io/docker/cloud/build/lanlords/cmw) |
+| Counter-Strike: Global Offensive | [![Size](https://img.shields.io/docker/image-size/lanlords/csgo?label=)](https://hub.docker.com/r/lanlords/csgo) | ![Status](https://img.shields.io/docker/cloud/build/lanlords/csgo) |
+| Team Fortress 2  | [![Size](https://img.shields.io/docker/image-size/lanlords/tf2?label=)](https://hub.docker.com/r/lanlords/tf2)       | ![Status](https://img.shields.io/docker/cloud/build/lanlords/tf2) |
