@@ -41,6 +41,7 @@ jobs:
     with:
       name: bf1942
       description: "Battlefield 2 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_BF1942 }}"
 
   build-bf2:
@@ -52,6 +53,7 @@ jobs:
     with:
       name: bf2
       description: "Battlefield 2 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_BF2 }}"
 
   build-cmw:
@@ -63,6 +65,7 @@ jobs:
     with:
       name: cmw
       description: "Chivalry Medieval Warfare game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_CMW }}"
 
   build-cod2:
@@ -74,6 +77,7 @@ jobs:
     with:
       name: cod2
       description: "Call of Duty 2 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_COD2 }}"
 
   build-cod4:
@@ -81,10 +85,11 @@ jobs:
     needs: check-requirements
     if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
-    secrets: inherit
+    secrets : inherit
     with:
       name: cod4
       description: "Call of Duty 4 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_COD4 }}"
 
   build-cod5:
@@ -96,6 +101,7 @@ jobs:
     with:
       name: cod5
       description: "Call of Duty 5 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_COD5 }}"
 
   build-csgo:
@@ -107,6 +113,7 @@ jobs:
     with:
       name: csgo
       description: "Counter-Strike: Global Offensive game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_CSGO }}"
 
   build-tf2:
@@ -118,4 +125,5 @@ jobs:
     with:
       name: tf2
       description: "Team Fortress 2 game server. Updated automatically."
+    secrets:
       build_api: "${{ secrets.BUILD_API_TF2 }}"

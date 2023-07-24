@@ -10,11 +10,11 @@ on:
         type: string
         required: true
         description: "Description of the container purpose."
-      maximize_space:
-        type: boolean
-        required: false
-        default: false
-        description: "Maximize github action build space."
+    secrets:
+      build_api:
+        type: string
+        required: true
+        description: "URL to trigger Automated build in Docker Hub"
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Trigger Docker Automated Build
-        run: curl -s -X POST "${{ inputs.build_api }}"
+        run: curl -s -X POST "${{ secrets.build_api }}"
 
   readme:
     name: Update readme
