@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Trigger Docker Automated Build
         run: curl -s -X POST "${{ secrets.build_api }}"
+      - name: Watch Docker Automated Build
+        run: ./status.sh ${{ inputs.name }}
 
   readme:
     name: Update readme
