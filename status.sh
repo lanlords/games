@@ -11,8 +11,7 @@ do
     then
 
         OUTPUT="$(eval $CMD)"
-        if [ "$OUTPUT" == "Building" ]
-        then
+        if [ "$OUTPUT" == "Building" ]; then
             echo "[status: $OUTPUT] Docker Build has started! Waiting to finish."
             STARTED="1"
          else
@@ -22,10 +21,12 @@ do
     else
 
         OUTPUT="$(eval $CMD)"
-        if [ "$OUTPUT" == "Success" ]
-        then
-        	echo "[status: $OUTPUT] Docker Build has finished!"
-            break
+        if [ "$OUTPUT" == "Success" ]; then
+            echo "[status: $OUTPUT] Docker Build has finished!"
+            exit 0
+        elif [ "$OUTPUT" == "Failed" ]; then
+            echo "[status: $OUTPUT] Docker build failed!"
+            exit 1
         else
             echo "[status: $OUTPUT] Docker Build is still running."
         fi
