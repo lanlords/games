@@ -15,6 +15,8 @@ WORKDIR $HOME
 RUN apt-get update \
  && apt-get install -y --no-install-recommends ca-certificates curl tar unzip
 
+RUN exit 1
+
 # Donload and unpack installer
 RUN curl $FILE --output archive.zip --silent \
  && unzip archive.zip \
