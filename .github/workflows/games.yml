@@ -63,7 +63,7 @@ jobs:
   build-bf2:
     name: Battlefield 2
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf2') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf2') || inputs.game == 'bf2' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: bf2
@@ -76,7 +76,7 @@ jobs:
   build-cmw:
     name: Chivalry Medieval Warfare
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cmw') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cmw') || inputs.game == 'cmw' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: cmw
@@ -89,7 +89,7 @@ jobs:
   build-cod2:
     name: Call of Duty 2
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod2') || inputs.game == 'cod2' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: cod2
@@ -102,7 +102,7 @@ jobs:
   build-cod4:
     name: Call of Duty 4
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod4') || inputs.game == 'cod4' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: cod4
@@ -115,7 +115,7 @@ jobs:
   build-cod5:
     name: Call of Duty 5
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod5') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cod5') || inputs.game == 'cod5' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: cod5
@@ -128,7 +128,7 @@ jobs:
   build-csgo:
     name: Counter-Strike Global Offensive
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || inputs.game == 'csgo' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: csgo
@@ -141,7 +141,7 @@ jobs:
   build-tf2:
     name: Team Fortress 2
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'tf2') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'tf2') || inputs.game == 'tf2' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: tf2
