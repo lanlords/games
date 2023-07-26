@@ -9,6 +9,21 @@ on:
   schedule:
     # every monday morning at 04:30
     - cron: '30 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      game:
+        description: 'Name of the game'
+        required: true
+        type: choice
+        options:
+          - bf1942
+          - bf2
+          - cmw
+          - cod2
+          - cod4
+          - cod5
+          - csgo
+          - tf2
 
 jobs:
   # prerequisites
@@ -35,7 +50,7 @@ jobs:
   build-bf1942:
     name: Battlefield 1942
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf1942') || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'bf1942') || inputs.game == 'bf1942' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
       name: bf1942
