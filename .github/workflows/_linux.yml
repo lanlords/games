@@ -30,6 +30,9 @@ jobs:
       - name: Trigger Docker Automated Build
         run: curl -s -X POST "${{ secrets.build_api }}"
       - name: Watch Docker Automated Build
+        env:
+          DOCKER_USERNAME: ${{ secrets.docker_username }}
+          DOCKER_PASSWORD: ${{ secrets.docker_password }}
         run: ./status.sh ${{ inputs.name }}
 
   readme:
