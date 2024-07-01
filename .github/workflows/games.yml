@@ -22,7 +22,7 @@ on:
           - cod2
           - cod4
           - cod5
-          - csgo
+          - cs2
           - tf2
 
 jobs:
@@ -125,16 +125,16 @@ jobs:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
-  build-csgo:
-    name: Counter-Strike Global Offensive
+  build-cs2:
+    name: Counter-Strike 2
     needs: check-requirements
-    if: contains(needs.check-requirements.outputs.changed-files-list, 'csgo') || inputs.game == 'csgo' || github.event_name == 'schedule'
+    if: contains(needs.check-requirements.outputs.changed-files-list, 'cs2') || inputs.game == 'cs2' || github.event_name == 'schedule'
     uses: ./.github/workflows/_linux.yml
     with:
-      name: csgo
-      description: "Counter-Strike: Global Offensive game server. Updated automatically."
+      name: cs2
+      description: "Counter-Strike 2 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_CSGO }}
+      build_api: ${{ secrets.BUILD_API_CS2 }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
