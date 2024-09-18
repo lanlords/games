@@ -1,2 +1,8 @@
 options:
   logging: CLOUD_LOGGING_ONLY
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    script: |
+      docker build -t lanlords/$IMAGE:latest .
+      docker push lanlords/$IMAGE:latest
