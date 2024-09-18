@@ -3,9 +3,10 @@ options:
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    script: |
-      echo ${_IMAGE}
-      docker build -t lanlords/${_IMAGE}:latest .
-      docker push lanlords/${_IMAGE}:latest
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        echo ${_IMAGE}
 substitutions:
   _IMAGE: unused
