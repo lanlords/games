@@ -7,7 +7,8 @@ steps:
     args:
       - '-c'
       - |
-        docker build -t lanlords/${_IMAGE}:latest .
+        docker build --file containers/${_IMAGE}/Dockerfile \
+        --tag lanlords/${_IMAGE}:latest containers/{_IMAGE}
         docker push lanlords/${_IMAGE}:latest
 substitutions:
   _IMAGE: unused
