@@ -4,5 +4,8 @@ options:
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     script: |
-      docker build -t lanlords/$_IMAGE:latest .
-      docker push lanlords/$_IMAGE:latest
+      echo ${_IMAGE}
+      docker build -t lanlords/${_IMAGE}:latest .
+      docker push lanlords/${_IMAGE}:latest
+    substitutions:
+      _IMAGE: unused
