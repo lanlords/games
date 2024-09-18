@@ -7,6 +7,7 @@ steps:
     args:
       - '-c'
       - |
-        echo ${_IMAGE}
+        docker build -t lanlords/${_IMAGE}:latest .
+        docker push lanlords/${_IMAGE}:latest
 substitutions:
   _IMAGE: unused
