@@ -8,7 +8,7 @@ steps:
       - '-c'
       - |
         cd containers/${_IMAGE}
-        echo ${_DOCKER_USERNAME}
+        echo ${DOCKER_USERNAME}
       #- |
       #  cd containers/${_IMAGE}
       #  echo ${_DOCKER_PASSWORD} | docker login --username ${_DOCKER_USERNAME} --password-stdin
