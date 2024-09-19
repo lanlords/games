@@ -22,6 +22,4 @@ availableSecrets:
       versionName: projects/lanlords-cloud/secrets/build-docker-password/versions/latest
 
 substitutions:
-  _IMAGE: unused
-  _MY_DOCKER_USERNAME:
-  _MY_DOCKER_PASSWORD:
+  _IMAGE: 'unused'
