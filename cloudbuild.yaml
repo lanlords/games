@@ -9,17 +9,6 @@ steps:
       - |
         cd containers/${_IMAGE}
         echo ${DOCKER_USERNAME}
-      #- |
-      #  cd containers/${_IMAGE}
-      #  echo ${_DOCKER_PASSWORD} | docker login --username ${_DOCKER_USERNAME} --password-stdin
-      #  docker build --tag lanlords/${_IMAGE}:latest .
-      #  docker push lanlords/${_IMAGE}:latest
-
-      #- |
-      #  cd containers/${_IMAGE}
-      #  docker login -u $$DOCKER_USERNAME -p $$DOCKER_PASSWORD
-      #  docker build -t lanlords/${_IMAGE}:latest .
-      #  docker push lanlords/${_IMAGE}:latest
     secretEnv:
       - DOCKER_USERNAME
       - DOCKER_PASSWORD
@@ -29,5 +18,3 @@ availableSecrets:
       versionName: projects/lanlords-cloud/secrets/build-docker-username/versions/latest
     - env: DOCKER_PASSWORD
       versionName: projects/lanlords-cloud/secrets/build-docker-password/versions/latest
-#substitutions:
-#  _IMAGE: unused
