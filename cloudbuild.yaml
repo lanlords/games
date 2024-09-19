@@ -10,7 +10,7 @@ steps:
       - |
         cd containers/${_IMAGE}
         echo "--------------------"
-        echo ${_MY_DOCKER_USERNAME}
+        echo $$_MY_DOCKER_USERNAME
         echo "--------------------"
     secretEnv:
       - '_MY_DOCKER_USERNAME'
