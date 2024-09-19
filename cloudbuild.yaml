@@ -22,3 +22,5 @@ availableSecrets:
 
 substitutions:
   _IMAGE: unused
+  _DOCKER_USERNAME: ''
+  _DOCKER_PASSWORD: ''
