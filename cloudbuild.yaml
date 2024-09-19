@@ -20,3 +20,5 @@ availableSecrets:
       env: 'DOCKER_PASSWORD'
 substitutions:
   _IMAGE: unused
+  DOCKER_USERNAME: unused
+  DOCKER_PASSWORD: unused
