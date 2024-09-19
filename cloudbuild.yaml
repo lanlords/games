@@ -29,7 +29,5 @@ availableSecrets:
       versionName: projects/lanlords-cloud/secrets/build-docker-username/versions/latest
     - env: DOCKER_PASSWORD
       versionName: projects/lanlords-cloud/secrets/build-docker-password/versions/latest
-substitutions:
-  _IMAGE: unused
-  _DOCKER_USERNAME: unused
-  _DOCKER_PASSWORD: unused
+#substitutions:
+#  _IMAGE: unused
