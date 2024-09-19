@@ -6,10 +6,11 @@ steps:
     entrypoint: bash
     args:
       - '-c'
-      - 'cd containers/${_IMAGE}'
-      - 'docker login --username ${_DOCKER_USERNAME} --password ${_DOCKER_PASSWORD}'
-      - 'docker build --tag lanlords/${_IMAGE}:latest .'
-      - 'docker push lanlords/${_IMAGE}:latest'
+      - |
+        cd containers/${_IMAGE}
+        docker login --username ${_DOCKER_USERNAME} --password ${_DOCKER_PASSWORD}
+        docker build --tag lanlords/${_IMAGE}:latest .
+        docker push lanlords/${_IMAGE}:latest
       #- |
       #  cd containers/${_IMAGE}
       #  docker login -u $$DOCKER_USERNAME -p $$DOCKER_PASSWORD
