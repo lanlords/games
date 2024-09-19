@@ -8,13 +8,13 @@ steps:
       - '-c'
       - |
         cd containers/${_IMAGE}
-        echo ${DOCKER_USERNAME}
+        echo ${SECRET_DOCKER_USERNAME}
     secretEnv:
-      - DOCKER_USERNAME
-      - DOCKER_PASSWORD
+      - SECRET_DOCKER_USERNAME
+      - SECRET_DOCKER_PASSWORD
 availableSecrets:
   secretManager:
-    - env: DOCKER_USERNAME
+    - env: SECRET_DOCKER_USERNAME
       versionName: projects/lanlords-cloud/secrets/build-docker-username/versions/latest
-    - env: DOCKER_PASSWORD
+    - env: SECRET_DOCKER_PASSWORD
       versionName: projects/lanlords-cloud/secrets/build-docker-password/versions/latest
