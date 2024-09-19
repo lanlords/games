@@ -9,9 +9,9 @@ steps:
       - '-c'
       - |
         cd containers/${_IMAGE}
-        echo "--------------------"
-        echo $$_MY_DOCKER_USERNAME
-        echo "--------------------"
+        docker login --username=$$_MY_DOCKER_USERNAME --password=$$_MY_DOCKER_PASSWORD
+        docker build -t lanlords/${_IMAGE} .
+        docker push lanlords/${_IMAGE}
     secretEnv:
       - '_MY_DOCKER_USERNAME'
       - '_MY_DOCKER_PASSWORD'
