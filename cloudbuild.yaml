@@ -1,5 +1,6 @@
 options:
   logging: CLOUD_LOGGING_ONLY
+  substitution_option: ALLOW_LOOSE
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
@@ -22,5 +23,3 @@ availableSecrets:
 
 substitutions:
   _IMAGE: unused
-  _DOCKER_USERNAME: ''
-  _DOCKER_PASSWORD: ''
