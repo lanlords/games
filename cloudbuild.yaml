@@ -8,7 +8,7 @@ steps:
       - '-c'
       - |
         cd containers/${_IMAGE}
-        docker login --username ${_DOCKER_USERNAME} --password ${_DOCKER_PASSWORD}
+        echo ${_DOCKER_PASSWORD} | docker login --username ${_DOCKER_USERNAME} --password-stdin
         docker build --tag lanlords/${_IMAGE}:latest .
         docker push lanlords/${_IMAGE}:latest
       #- |
