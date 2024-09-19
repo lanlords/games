@@ -8,7 +8,15 @@ steps:
       - '-c'
       - |
         cd containers/${_IMAGE}
+        docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
         docker build -t lanlords/${_IMAGE}:latest .
         docker push lanlords/${_IMAGE}:latest
+    secretEnv: ['DOCKER_USERNAME', 'DOCKER_PASSWORD']
+availableSecrets:
+  secretManager:
+    - versionName: projects/lanlords-cloud/secrets/build-docker-username/versions/1
+      env: 'DOCKER_USERNAME'
+    - versionName: projects/lanlords-cloud/secrets/build-docker-password/versions/1
+      env: 'DOCKER_PASSWORD'
 substitutions:
   _IMAGE: unused
