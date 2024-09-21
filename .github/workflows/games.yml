@@ -33,7 +33,7 @@ jobs:
     outputs:
       changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Store changed files list
