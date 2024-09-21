@@ -11,9 +11,12 @@ on:
         required: true
         description: "Description of the container purpose."
     secrets:
-      build_api:
+      gcloud_key:
         required: true
-        description: "URL to trigger Automated build in Docker Hub"
+        description: "Google Cloud Build access key"
+      gcloud_project:
+        required: true
+        description: "Google Cloud Build project"
       docker_username:
         required: true
         description: "Docker Hub username"
@@ -22,22 +25,41 @@ on:
         description: "Docker Hub password"
 
 jobs:
+#  build:
+#    name: Build image
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Trigger Docker Automated Build
+#        run: curl -s -X POST "${{ secrets.build_api }}"
+#      - name: Watch Docker Automated Build
+#        env:
+#          DOCKER_USERNAME: ${{ secrets.docker_username }}
+#          DOCKER_PASSWORD: ${{ secrets.docker_password }}
+#        run: ./status.sh ${{ inputs.name }}
+
   build:
     name: Build image
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    #container:
+    #  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:493.0.0-slim
     steps:
       - uses: actions/checkout@v3
-      - name: Trigger Docker Automated Build
-        run: curl -s -X POST "${{ secrets.build_api }}"
-      - name: Watch Docker Automated Build
+      - name: Trigger Build on Google Cloud
         env:
-          DOCKER_USERNAME: ${{ secrets.docker_username }}
-          DOCKER_PASSWORD: ${{ secrets.docker_password }}
-        run: ./status.sh ${{ inputs.name }}
+          GCLOUD_PROJECT: ${{ secrets.gcloud_project }}
+          GCLOUD_KEY_DATA: ${{ secrets.gcloud_key }}
+          GCLOUD_KEY_FILE: ${{ runner.temp }}/key.json
+          GCLOUD_BUILD_ID: ${{ runner.temp }}/build.id
+        run: |
+          echo $GCLOUD_KEY_DATA > $GCLOUD_KEY_FILE
+          gcloud auth login --cred-file=$GCLOUD_KEY_FILE
+          gcloud builds triggers run build-game --project $GCLOUD_PROJECT --region europe-west1 --substitutions _IMAGE=${{ inputs.name }} | jq -r .metadata.build.id >> $GCLOUD_BUILD_ID
+          gcloud beta builds log --stream $(cat $GCLOUD_BUILD_ID) --project $GCLOUD_PROJECT --region europe-west1
 
   readme:
     name: Update readme
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs: build
     steps:
       - uses: actions/checkout@v3

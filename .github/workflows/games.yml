@@ -56,7 +56,8 @@ jobs:
       name: bf1942
       description: "Battlefield 1942 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_BF1942 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -69,7 +70,8 @@ jobs:
       name: bf2
       description: "Battlefield 2 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_BF2 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -82,7 +84,8 @@ jobs:
       name: cmw
       description: "Chivalry Medieval Warfare game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_CMW }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -95,7 +98,8 @@ jobs:
       name: cod2
       description: "Call of Duty 2 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_COD2 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -108,7 +112,8 @@ jobs:
       name: cod4
       description: "Call of Duty 4 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_COD4 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -121,7 +126,8 @@ jobs:
       name: cod5
       description: "Call of Duty 5 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_COD5 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -134,7 +140,8 @@ jobs:
       name: cs2
       description: "Counter-Strike 2 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_CS2 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -147,6 +154,7 @@ jobs:
       name: tf2
       description: "Team Fortress 2 game server. Updated automatically."
     secrets:
-      build_api: ${{ secrets.BUILD_API_TF2 }}
+      gcloud_key: ${{ secrets.GCLOUD_KEY }}
+      gcloud_project: ${{ secrets.GCLOUD_PROJECT }}
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
