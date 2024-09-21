@@ -25,25 +25,11 @@ on:
         description: "Docker Hub password"
 
 jobs:
-#  build:
-#    name: Build image
-#    runs-on: ubuntu-20.04
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Trigger Docker Automated Build
-#        run: curl -s -X POST "${{ secrets.build_api }}"
-#      - name: Watch Docker Automated Build
-#        env:
-#          DOCKER_USERNAME: ${{ secrets.docker_username }}
-#          DOCKER_PASSWORD: ${{ secrets.docker_password }}
-#        run: ./status.sh ${{ inputs.name }}
 
   build:
     name: Build image
     runs-on: ubuntu-latest
     timeout-minutes: 240
-    #container:
-    #  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:493.0.0-slim
     steps:
       - uses: actions/checkout@v3
       - name: Trigger Build on Google Cloud
