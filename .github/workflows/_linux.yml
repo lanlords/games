@@ -54,10 +54,7 @@ jobs:
         run: |
           echo $GCLOUD_KEY_DATA > $GCLOUD_KEY_FILE
           gcloud auth login --cred-file=$GCLOUD_KEY_FILE
-          echo $GCLOUD_PROJECT
-          echo ${{ inputs.name }}
-          gcloud builds triggers run build-game --project $GCLOUD_PROJECT --region europe-west1 --substitutions _IMAGE=${{ inputs.name }}
-          gcloud builds triggers run build-game --project $GCLOUD_PROJECT --region europe-west1 --substitutions _IMAGE=${{ inputs.name }} | jq -r .metadata.build.id >> $GCLOUD_BUILD_ID
+          gcloud builds triggers run build-game --project $GCLOUD_PROJECT --region europe-west1 --substitutions _IMAGE=${{ inputs.name }} --format json | jq -r .metadata.build.id >> $GCLOUD_BUILD_ID
           gcloud beta builds log --stream $(cat $GCLOUD_BUILD_ID) --project $GCLOUD_PROJECT --region europe-west1
 
   readme:

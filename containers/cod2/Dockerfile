@@ -54,6 +54,7 @@ EXPOSE 28960/udp 20510/udp
 # Set working directory
 WORKDIR $HOME
 
+
 # Set default command
 ENTRYPOINT ["/data/cod2_lnxded"]
 CMD ["+set dedicated 1", "+set g_gametype ctf", "+map_rotate", "+set sv_punkbuster 0", "+exec server.cfg"]
