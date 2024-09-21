@@ -1,6 +1,7 @@
 options:
   logging: CLOUD_LOGGING_ONLY
   substitution_option: ALLOW_LOOSE
+timeout: 10800s
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
