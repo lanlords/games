@@ -51,10 +51,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Update Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.docker_username }}
           password: ${{ secrets.docker_password }}
           repository: lanlords/${{ inputs.name }}
           readme-filepath: ./containers/${{ inputs.name }}/README.md
           short-description: ${{ inputs.description }}
+          enable-url-completion: true
