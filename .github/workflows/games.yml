@@ -6,9 +6,6 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    # every monday morning at 04:30
-    - cron: '30 4 * * 1'
   workflow_dispatch:
     inputs:
       game:
